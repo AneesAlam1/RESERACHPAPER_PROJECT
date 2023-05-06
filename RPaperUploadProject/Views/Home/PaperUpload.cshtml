@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "PaperUpload";
+    Layout = "~/Views/SHARED/MainMaster.cshtml";
+}
+<style>
+
+    input[type='text'] {
+        color:blue;
+    }
+    input[type='number'] {
+        color:blue;
+    }
+    input[type='email'] {
+        color:blue;
+    }
+    .textareacolor {
+        color:#ff6a00;
+    }
+    
+
+</style>
+<div class="row">
+    <hr />
+<div class="col-sm-3"></div>
+    
+<div class="col-sm-6 shadow p-3 mb-5 bg-body-tertiary rounded" >
+    <br />
+    
+    <h2 style="background-color:darkblue; color:white; font-family:'Brush Script MT';letter-spacing:2px;" class="success">Article Submission</h2>
+    <br />
+    <form method="post" action="/home/PaperUpload" enctype="multipart/form-data">
+        <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label success">Author Name</label>
+  <input type="text" class="form-control placeholder-glow" name="tautname"  placeholder="Enter Author Name" required>
+  <small  class="form-text text-danger">If More Than One Author Then Put , For Seperation</small>
+</div> 
+       <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label success">Enter Title Of The Paper</label>
+  <input type="text" class="form-control placeholder-glow" name="tpapername"  placeholder="Enter Title Of Paper" required>
+</div> 
+        <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label success">Enter Abstract of Paper</label>
+  
+  <textarea class="form-control textareacolor" name="tabstract" placeholder="Enter Abstract" rows="5" required></textarea>
+</div> 
+        <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label success">Enter Keywords</label>
+  
+  <input type="text" class="form-control placeholder-glow" name="tkeyword"  placeholder="Enter Keywords " required>
+  <small  class="form-text text-danger">If More Than One Keyword Then Put , For Seperation</small>
+</div> 
+        <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label success">Enter Email Id</label>
+  <input type="email" class="form-control" name="temail"  placeholder="Enter Email Id" required>
+  <small  class="form-text text-danger">We'll never share your email with anyone else.</small>
+</div>
+        
+        <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label success">Enter Contact Number </label>
+  <input type="number" class="form-control" name="tcontact"  placeholder="Enter contact Number" required>
+            <small  class="form-text text-danger">Enter Your Registered Contact Number</small>
+</div>
+
+<div class="mb-3">
+  <label class="form-label" for="customFile">Browse The Uplaod Research Paper</label>
+<input type="file" class="form-control" name="file" />
+</div>
+        <div class="mb-3 d-flex justify-content-center">
+  
+  <input type="submit" class="btn btn-success" value="Paper Upload" style="width:200px;"/>
+</div>
+    </form>
+
+</div>
+<div class="col-sm-3">
+    <br />
+    @{
+         if(IsPost)
+         {
+             @Html.Raw(ViewBag.result);         
+             
+           
+     
+    }
+    }
+</div>
+</div>

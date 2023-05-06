@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "TestingUpload";
+    Layout = "~/Views/SHARED/MainMaster.cshtml";
+    
+
+}
+<script src="~/jQuery/jquery-3.6.4.min.js"></script>
+<script>
+    k="val1"
+    $(document).ready(function(){
+        $(".addmore").click(function(e){
+            e.preventDefault();
+            $("#formitem").prepend("<div class='row'> <div class='col-md-4 mb-3'> <input type='text' name='productN[]' class='form-control' placeholder='Enter Product Name' required></div><div class='col-md-3 mb-3'> <input type='text' name='productP[]' class='form-control' placeholder='Enter Product Price' requried></div> <div class='col-md-3 mb-3'> <input type='text' name='productP[]' class='form-control' placeholder='Enter Product Quantity' required></div>  <div class='col-md-2 d-gird mb-3'> <button class='btn btn-danger remove_item_button form-control' >Remove</button> </div></div>")
+                        
+            })
+        $(document).on('click','.remove_item_button',function(e){
+            e.preventDefault()
+            srow=$(this).parent().parent()
+            $(srow).remove();
+                
+
+
+        });
+    });
+        
+
+          
+
+
+</script>
+
+<div class="container-fluid">
+    <div class="row my-4">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h5>Add Details</h5></div>
+                    <div class="card-body">
+                        <Form method="post" id="frm" action="/home/TestingUpload">
+                            <div id="formitem">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <input type="text" name="productN[]" class="form-control" placeholder="Enter Product Name" requried>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <input type="text" name="productP[]" class="form-control" placeholder="Enter Product Price" requried>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <input type="text" name="productQ[]" class="form-control" placeholder="Enter Product Quantity" requried>
+                                    </div>
+                                    <div class="col-md-2 d-gird mb-3">
+                                        <button class="btn btn-success addmore form-control">Add More</button>
+                                    </div>
+                                </div>
+                                <!-- Row close -->
+                            </div>
+                            <div>
+                                <input type="submit" value="Add" class="btn btn-primary w-25">
+                            </div>
+
+
+                        </Form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+</div>
