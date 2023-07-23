@@ -1,0 +1,58 @@
+<head runat="server">
+    <title></title>
+     <link href="~/Content/css/bootstrap-theme.min.css" rel="stylesheet" />
+     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+     <script src="~/Content/js/jquery.js"></script>
+     <script src="~/Content/js/bootstrap.min.js"></script>
+     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+     <link href="~/Content/css/hover-min.css" rel="stylesheet" />
+    <style>
+        .first {
+            background-color:yellow;
+            height:50px;
+            margin-top:2px;
+            
+
+        }
+        .second {
+            background-color:green;
+            height:50px;
+            margin-top:2px;
+            
+        }
+        body {
+            margin:4px;
+        }
+
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+      <div class="container-fluid">
+        <div class="row">
+        <div class="col-sm-4 first">
+            First 
+        </div>
+        <div class="col-sm-4 second">
+            Second
+        </div>
+        <div class="col-sm-4 first">
+            Third
+        </div>
+    </div>
+          <div class="row">
+              <div class="col-sm-6 second"></div>
+              <div class="col-sm-6 first"></div>
+          </div>
+          <div class="row">
+              <div class="col-sm-2 first"></div>
+              <div class="col-sm-2 second"></div>
+              <div class="col-sm-2 first"></div>
+              <div class="col-sm-2 second"></div>
+              <div class="col-sm-2 first"></div>
+              <div class="col-sm-2 second"></div>
+          </div>
+      </div>
+    </form>
+</body>
+</html>

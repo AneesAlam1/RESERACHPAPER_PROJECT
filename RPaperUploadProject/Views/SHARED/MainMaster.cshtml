@@ -20,7 +20,17 @@
         }
             .x:hover {
                 color:orange;
+                background-color:lightgoldenrodyellow;
             }
+        .bck {
+            background-color:darkblue;
+            color:white;
+            font-family:'Brush Script MT';
+            width:40px;
+            font-size:28px;
+            width:500px;
+            text-align:center;
+        }
     </style>
 </head>
 <body>
@@ -61,9 +71,7 @@
         <li class="nav-item">
           <a class="nav-link x" href="/home/registration">Registration</a>
         </li>
-          <li class="nav-item">
-          <a class="nav-link x" href="#">FeedBack</a>
-        </li>
+         
 
           <li class="nav-item">
           <a class="nav-link x" href="/home/AboutUs">About Us</a>
@@ -79,14 +87,19 @@
           <a class="nav-link x" href="/home/AboutUs">Indexing of Journal</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link x" href="/home/PaperUpload">Submit Your Article</a>
+          <a class="nav-link x" href="/home/PaperUpload">Submit Article</a>
         </li>
           
            <li class="nav-item">
           <a class="nav-link x" href="/home/copyrightform">Copyright Form</a>
         </li>
+           <li class="nav-item">
+          <button type="button" style='background-color:lightgoldenrodyellow; ' class="btn x " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Enquiry
+            </button>
+        </li>
           <li class="nav-item">
-          <a class="nav-link x" href="/home/AboutUs">Help</a>
+          <a class="nav-link x" href="/home/LogoutApp">Logout</a>
         </li>
         
         
@@ -95,6 +108,45 @@
   </div>
 </nav>
     </div>
+
+                @*Modal Segment *@
+
+                <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="bck"  >Enquiry Form</h1>
+        @*<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>*@
+      </div>
+        <form method="post" action="/home/Enquiry">
+      <div class="modal-body">
+            
+            <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label lead" style="color:blue">Email address</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter Email Address" required>
+            <small  class="form-text text-danger">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label lead" style="color:blue">Enter Your Query</label>
+            <textarea class="form-control" name="query" rows="3" required></textarea>
+            <small  class="form-text text-danger">Enquiry Will Be Answered Shortly</small>
+            </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-bs-dismiss="modal" class="btn btn-danger btn-sm">Close</button>
+        <button type="submit" class="btn btn-success btn-sm">Submit</button>
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+                @*Modal Segment Close*@
         
         
 

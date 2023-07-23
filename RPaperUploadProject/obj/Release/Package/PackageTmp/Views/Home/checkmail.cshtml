@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>checkmail</title>
+</head>
+<body>
+    <div>
+        <form method="post" action="/home/checkmail">
+            <h2>Tesing Mail segment </h2>
+            <input type="text" name="num" />
+            <br />
+            <input type="submit" value="SendMail" />
+        </form>
+        @{
+            if(IsPost)
+            {
+                <span>@ViewBag.res</span>
+            }
+        }
+        
+    </div>
+</body>
+</html>

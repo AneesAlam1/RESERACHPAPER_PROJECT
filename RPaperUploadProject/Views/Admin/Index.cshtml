@@ -5,20 +5,28 @@
 
 <style>
     .background {
-        min-height:500px;
+        min-height:100vh;
         background-image:url("/ProjectImages/studying.jpg");
         background-size:cover;
         background-repeat:no-repeat;
     }
     .film {
-        min-height:500px;
+        min-height:100vh;
         background-color:rgba(0,0,0,0.6);
+    }
+     @@media (max-width:768px) {
+        .background {
+            min-height:30vh;
+        }
+    }
+    @@media (max-width:768px) {
+        .film {
+            min-height:30vh;
+        }
     }
 
 </style>
 
 <div class="col-sm-12 background">
     <div class="col-sm-12 film"></div>
-
-
 </div>

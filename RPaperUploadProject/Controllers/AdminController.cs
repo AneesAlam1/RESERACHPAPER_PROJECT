@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 
+
 namespace RPaperUploadProject.Controllers
 {
     public class AdminController : Controller
@@ -17,14 +18,17 @@ namespace RPaperUploadProject.Controllers
         DBManager dm = new DBManager();
         public ActionResult Index()
         {
+            if (Session["uid"] == null)
+            {
+                return RedirectToAction("index", "home");
+            }
+            
+
             return View();
         }
         public ActionResult RegDisplay()
         {
-            
-
-
-            
+                                  
             
             string q = "select * from tbl_registration";
             DataTable dt = dm.ReadBulkData(q);
@@ -95,8 +99,17 @@ namespace RPaperUploadProject.Controllers
                 tbl += "<td>" + dt.Rows[i][3] + "</td>";
                 tbl += "<td>" + dt.Rows[i][5] + "</td>";
                 tbl += "<td>" + dt.Rows[i][6] + "</td>";
-                tbl += "<td>" + dt.Rows[i][7] + "</td>";
-                tbl += "<td>" + dt.Rows[i][8] + "</td>";
+
+
+
+                string newdt = (dt.Rows[i][7].ToString());
+                int kk = newdt.LastIndexOf(' ');
+                string dispdate=newdt;
+                if (kk != -1)
+                    dispdate = newdt.Substring(0, kk);
+                
+                tbl += "<td>" +dispdate+ "</td>";
+                tbl += "<td style='color:red'>" + dt.Rows[i][8] + "</td>";
                 
 
                 tbl += "<td><a href='/admin/test?fn="+dt.Rows[i][9]+"'>Download</a></td>";
@@ -107,14 +120,12 @@ namespace RPaperUploadProject.Controllers
             return View();
 
         }
-        //public ActionResult testing()
-        //{
-        //    string filename = "1_cloud computing.pdf";
-        //    string d="@Html.ActionLink('Search', 'test', new { fname = '"+filename+"'})";
-            
-        //    ViewBag.result = d;
-        //    return View();
-        //}
+        public ActionResult LogoutApp()
+        {
+            Session["uid"] = null;
+            return View();
+        }
+        
         
         public ActionResult test()
         {
@@ -125,7 +136,34 @@ namespace RPaperUploadProject.Controllers
             string filePath = Server.MapPath("~/FILEUPLOAD/" + fname);
             return File(filePath, "application/"+ext, fname);
          }
-
+        public ActionResult EnqDetails()
+        {
+            string q = "select * from tbl_enquiry";
+            DataTable dt = dm.ReadBulkData(q);
+            string tbl = "<table class='table table-striped'>";
+            int i;
+            tbl += "<tr>";
+            tbl += "<th>EnquiryNo</th>";
+            tbl += "<th>Email</th>";
+            tbl += "<th>Enquiry</th>";
+            
+            tbl += "</tr>";
+            for (i = 0; i < dt.Rows.Count; i++)
+            {
+                tbl += "<tr>";
+                tbl += "<td>" + dt.Rows[i][0] + "</td>";
+                tbl += "<td>" + dt.Rows[i][1] + "</td>";
+                tbl += "<td>" + dt.Rows[i][2] + "</td>";
+               
+                
+                tbl += "</tr>";
+            }
+            tbl += "</table>";
+            ViewBag.table = tbl;
+            return View();
+            
+            return View();
+        }
             
 
             

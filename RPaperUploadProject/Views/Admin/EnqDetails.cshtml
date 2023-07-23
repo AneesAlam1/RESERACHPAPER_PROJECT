@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "EnqDetails";
+    Layout = "~/Views/SHARED/_AdminMaster.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <hr />
+        <p class="lead text-danger" style="text-align:center;font-size:24px;">All Enquiries</p>
+        <hr />
+        @{
+            @Html.Raw(ViewBag.table);
+        }
+    </div>
+</div>

@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/SHARED/MainMaster.cshtml";
+    
+    
+}
+
+<style>
+    h2 {
+        background-color:darkblue;
+        text-align:center;
+        color:white;
+        letter-spacing:4px;
+        font-family:'Brush Script MT';
+    }
+    span {
+        color:red;
+        font-size:20px;
+        font-family:'Times New Roman';
+        font-style:italic;
+    }
+</style>
+<hr>
+<div class="row">
+
+<div class="col-sm-3"></div>
+    
+<div class="col-sm-6 shadow p-3 mb-5 bg-body-tertiary rounded" >
+    <br />
+    @{
+        if(IsPost)
+        {
+            <span class="mb-3 d-flex justify-content-center">@ViewBag.result</span>
+        }
+    }
+    <h2>Registration</h2>
+    <form method="post" action="/home/Registration">
+        <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Enter Name</label>
+  <input type="text" class="form-control" name="tname" placeholder="Enter Name" required>
+</div>
+        <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <input type="email" class="form-control" name="temail" placeholder="name@example.com" required>
+</div>
+        <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Enter Contact Number</label>
+  <input type="number" class="form-control" name="tcontact"  placeholder="name@example.com" required>
+</div>
+        <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Enter City</label>
+  <input type="text" class="form-control" name="city"  placeholder="Enter City" required>
+</div>
+        
+        <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Enter User Name</label>
+  <input type="text" class="form-control" name="userid"  placeholder="Enter UserName" required>
+</div>
+
+        <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Enter Password</label>
+  <input type="password" class="form-control" name="password"  placeholder="Enter Password" required>
+</div>
+                
+
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Intro In Short</label>
+  <textarea class="form-control" name="tintro" rows="3"></textarea>
+</div>
+        <div class="mb-3 d-flex justify-content-center">
+  
+  <input type="Submit" class="btn btn-success" style="width:200px;"/>
+</div>
+    </form>
+
+</div>
+<div class="col-sm-3">
+    
+</div>
+</div>

@@ -1,0 +1,30 @@
+﻿.header {
+            min-height:50px;
+            text-align:center;
+            font-family:'Times New Roman';
+            background-color:darkblue;
+            color:white;
+            letter-spacing:5px;
+            font-size:24px;
+            line-height:50px;
+        }
+        body {
+            padding:5px;
+        }
+.sp1 {
+    color:white;
+    font-size:22px;
+    
+
+}
+h2 {
+    background-color:lightgoldenrodyellow;
+    text-align:center;
+    color:green;
+
+}
+
+a {
+    color:black;
+    font-size:18px;
+}

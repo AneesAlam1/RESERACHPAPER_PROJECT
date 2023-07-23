@@ -18,6 +18,8 @@ namespace RPaperUploadProject.Controllers
         string q; 
         public ActionResult Index()
         {
+           
+                
             return View();
         }
         public ActionResult Registration()
@@ -68,6 +70,7 @@ namespace RPaperUploadProject.Controllers
             dt = dm.ReadBulkData(q);
             if (dt.Rows.Count > 0)
             {
+                Session["uid"] = uname; 
                 if (uname.Equals("Admin"))
                 {
                     return (RedirectToAction("index", "admin"));
@@ -87,6 +90,14 @@ namespace RPaperUploadProject.Controllers
         }
         public ActionResult PaperUpload()
         {
+            if (Session["uid"] != null)
+            {
+                ViewBag.sid = Session["uid"];
+            }
+            else
+            {
+                ViewBag.sid = "Anonymous User";
+            }
             return View();
         }
         public void MailSender(HttpPostedFileBase file, string tpapername, string tabstract, string temail, string tcontact, string newfile,string code)
@@ -150,6 +161,7 @@ namespace RPaperUploadProject.Controllers
         public ActionResult PaperUpload(HttpPostedFileBase file, string tautname, string tpapername, string tabstract, string tkeyword, string temail, string tcontact)
         {
             int count = 0;
+            
             try
             {
                 if (file.ContentLength > 0)
@@ -197,6 +209,7 @@ namespace RPaperUploadProject.Controllers
                     //-------------Mail Sending Procedure
                     
                     MailSender(file, tpapername, tcontact,temail,tcontact,newfile,c);
+                    MailSender(file, tpapername, tcontact, "IIRJ@npgc.in", tcontact, newfile, c);
 
                     //--------------------End Mail Sending procedure 
                     
@@ -334,7 +347,21 @@ namespace RPaperUploadProject.Controllers
 
             return View();
         }
-
+        [HttpPost]
+        public ActionResult Enquiry(string email,string query)
+        {
+            string q = "insert into TBL_ENQUIRY values('" + email + "','" + query + "')";
+            bool j = dm.InsertUpdateDelete(q);
+            return RedirectToAction("index", "home");
+            
         }
-    }
+        public ActionResult LogoutApp()
+        {
+            Session["uid"] = null;
+            return View();
+        }
+        
+
+        }//Home Controller 
+    }//Name space
 

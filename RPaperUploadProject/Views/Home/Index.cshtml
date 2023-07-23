@@ -4,19 +4,38 @@
 }
 <style>
     .background {
-        min-height:500px;
+        min-height:100vh;
         background-image:url("/ProjectImages/5.jpg");
         background-size:cover;
         background-repeat:no-repeat;
     }
     .film {
-        min-height:500px;
+        min-height:100vh;
         background-color:rgba(0,0,0,0.6);
+    }
+    @@media (max-width:768px) {
+        .background {
+            min-height:30vh;
+        }
+    }
+    @@media (max-width:768px) {
+        .film {
+            min-height:30vh;
+        }
     }
 
 </style>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        
+        <span>@ViewBag.sid</span>
+    </div>
 
-<div class="col-sm-12 background">
+    
+    <div class="col-sm-4"></div>
+</div>
+<div class="col-sm-12 background img-fluid">
     <div class="col-sm-12 film"></div>
 
 
